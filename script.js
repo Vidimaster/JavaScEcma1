@@ -15,19 +15,25 @@ console.log(Math.min(...arr));
 function createCounter() {
     var value = 0;
     function increment() {
-        return value++;
+        value++;
     }
     function decrement() {
-        return value--;
+        value--;
     }
-    return { increment, decrement };
+    function getValue() {
+        return value;
+    };
+    return { increment, decrement, getValue };
+
 }
 const count = createCounter();
-console.log(count.increment());
-console.log(count.increment());
-console.log(count.increment());
-console.log(count.increment());
-console.log(count.decrement());
+count.increment();
+count.increment();
+count.increment();
+count.increment();
+count.decrement();
+count.decrement();
+console.log(count.getValue());
 
 // 3) Дополнительное задание, выполняем только если проходили работу с DOM.
 // Напишите рекурсивную функцию findElementByClass, которая принимает корневой
